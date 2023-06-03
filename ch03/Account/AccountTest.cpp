@@ -9,7 +9,7 @@ void displayAccount(Account accountToDisplay);
 
 int main() 
 {
-   Account account1{"Jane Green", 50};
+   Account account1{"Jane Green", 50.5};
    Account account2{"John Blue", -7}; 
 
    // display initial balance of each object
@@ -17,7 +17,7 @@ int main()
    displayAccount(account2);  
 
    cout << "\n\nEnter deposit amount for account1: "; // prompt
-   int depositAmount;
+   double depositAmount;
    cin >> depositAmount; // obtain user input
    cout << "adding " << depositAmount << " to account1 balance";
    account1.deposit(depositAmount); // add to account1's balance
@@ -36,7 +36,7 @@ int main()
    displayAccount(account2);  
 
    // withdraw
-   int withdrawAmount;
+   double withdrawAmount;
    cout << "\n\nEnter withdraw amount for account1: "; // prompt
    cin >> withdrawAmount;
    account1.withdraw(withdrawAmount);
