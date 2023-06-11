@@ -17,6 +17,8 @@ int main() {
 
     unsigned int user_input{0}, random{0};
 
+    int i{0};
+
     
     
 
@@ -40,11 +42,28 @@ int main() {
         while (true)
         {
             cin >> user_input;
+            i++; 
 
             if (user_input == random)
             {
-                cout << "Excellent! You guessed the number!"
-                    << "\n" << "Would you like to play again (y or n)?\n";
+
+                if (i >= 10)
+                {
+                    cout << "Either you know the secret or you got lucky!";
+                }
+
+                if (i == 10)
+                {
+                    cout << "\n" << "Ahah! You know the secret!";
+                }
+                else
+                {
+                    cout << "\n" << "You should be able to do better!";
+                }
+                
+                cout << "\n" << "Would you like to play again (y or n)?\n";
+
+
 
                 cin >> playAgain;
 
