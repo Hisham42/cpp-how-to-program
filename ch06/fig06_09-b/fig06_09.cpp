@@ -3,7 +3,11 @@
 #include <iostream>
 #include <cstdlib> // contains prototypes for functions srand and rand
 #include <ctime> // contains prototype for function time
+#include <random>
 using namespace std;
+default_random_engine engine{static_cast<unsigned int>(time(0))};
+
+
 
 unsigned int rollDice(); // rolls dice, calculates and displays sum
 
@@ -13,6 +17,7 @@ int main() {
 
    // randomize random number generator using current time
    srand(static_cast<unsigned int>(time(0)));
+   
 
    unsigned int myPoint{0}; // point if no win or loss on first roll
    Status gameStatus; // can be CONTINUE, WON or LOST
@@ -62,8 +67,11 @@ int main() {
 
 // roll dice, calculate sum and display results
 unsigned int rollDice() {
-   int die1{1 + rand() % 6}; // first die roll
-   int die2{1 + rand() % 6}; // second die roll
+  
+   uniform_int_distribution <unsigned int> randomInt{1, 6};
+
+   int die1 = static_cast<int>(randomInt(engine)); // first die roll
+   int die2 = static_cast<int>(randomInt(engine)); // second die roll
    int sum{die1 + die2}; // compute sum of die values
 
    // display results of this roll
