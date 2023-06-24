@@ -30,21 +30,21 @@ int counter{1};
 using namespace std;
 
 void displayChessboard();
-void moveNumber(int number);
+void moveKnight(int number);
 void initiateKnight(int a, int b);
-void displayHeuristic();
-int moveHeuristicCheck(int number);
-int moveHeuristic();
+void displayHeuristicArray();
+int smallestAccessibilityGetter(int number);
+int accurateMoveNumber();
 void reduceAccessibility(int row, int column);
 
 int main() {
     
     
-    initiateKnight(0, 7);
+    initiateKnight(0, 0);
 
     for (size_t i = 1; i < 64; i++)
     {
-        moveNumber(moveHeuristic());
+        moveKnight(accurateMoveNumber());
         
     }
    
@@ -84,7 +84,7 @@ void displayChessboard() {
     
 }
 
-void moveNumber(int number) {
+void moveKnight(int number) {
     currentColumn += HORIZONTAL[number];
     currentRow += VERTICAL[number];
 
@@ -110,8 +110,7 @@ void initiateKnight(int a, int b){
     chessBoard[currentRow][currentColumn] = 1;
 }
 
-
-void displayHeuristic() {
+void displayHeuristicArray() {
 
 
     cout << setw(3) << " ";
@@ -141,7 +140,7 @@ void displayHeuristic() {
     
 }
 
-int moveHeuristicCheck(int number) {
+int smallestAccessibilityGetter(int number) {
     //1
     int optionalColumn_1 = currentColumn + HORIZONTAL[number];
     int optionalRow_1 = currentRow + VERTICAL[number];
@@ -159,16 +158,14 @@ int moveHeuristicCheck(int number) {
     return accessability1;
 }
 
-int moveHeuristic() {
+int accurateMoveNumber() {
 
     int options[8];
-    int joker;
-    int smallest;
     int x;
 
     for (size_t i = 0; i < 8; i++)
     {
-        options[i] = moveHeuristicCheck(i);
+        options[i] = smallestAccessibilityGetter(i);
         
     }
 
