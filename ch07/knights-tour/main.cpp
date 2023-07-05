@@ -3,12 +3,11 @@
 #include <array>
 
 const int ROWS = 8;
-
+int MOVES = 63;
 const int COLUMNS = 8;
 
-
-
 int chessBoard[ROWS][COLUMNS];
+int nextAccessibility(int value);
 const int HORIZONTAL [8] = {2, 1, -1, -2, -2, -1, 1, 2};
 const int VERTICAL   [8] = {-1, -2, -2, -1, 1, 2, 2, 1};
 
@@ -33,16 +32,17 @@ void displayChessboard();
 void moveKnight(int number);
 void initiateKnight(int a, int b);
 void displayHeuristicArray();
-int smallestAccessibilityGetter(int number);
+int accessibilityGetter(int number);
 int accurateMoveNumber();
 void reduceAccessibility(int row, int column);
+int recursiveAccurateMove();
 
 int main() {
     
     
     initiateKnight(0, 0);
 
-    for (size_t i = 1; i < 64; i++)
+    for (size_t i = 1; i < MOVES + 1; i++)
     {
         moveKnight(accurateMoveNumber());
         
@@ -140,7 +140,7 @@ void displayHeuristicArray() {
     
 }
 
-int smallestAccessibilityGetter(int number) {
+int accessibilityGetter(int number) {
     //1
     int optionalColumn_1 = currentColumn + HORIZONTAL[number];
     int optionalRow_1 = currentRow + VERTICAL[number];
@@ -165,10 +165,11 @@ int accurateMoveNumber() {
 
     for (size_t i = 0; i < 8; i++)
     {
-        options[i] = smallestAccessibilityGetter(i);
+        options[i] = accessibilityGetter(i);
         
     }
 
+    
 
    for (size_t i = 0; i < 8; i++)
    {
@@ -183,6 +184,7 @@ int accurateMoveNumber() {
         if (x == 8)
         {
             x = i;
+           
             return x;
         }
         else
@@ -210,4 +212,56 @@ void reduceAccessibility(int row, int column) {
         
     }
     
+    
+}
+
+int nextAccessibility(int value) {
+
+    int x = currentRow + VERTICAL[value];
+    int y = currentColumn + HORIZONTAL[value];
+
+    return accessabilityHeuristic[x][y];
+
+
+
+
+}
+
+int recursiveAccurateMove() {
+
+    int x{accurateMoveNumber()};
+    int options[8];
+
+    for (size_t i = 0; i < 8; i++)
+    {
+        options[i] = accessibilityGetter(i);
+        cout << options[i] << " ";
+    }
+    cout << "||x: " <<x << endl ;
+
+    for (size_t i = 0; i < 8; i++)
+    {
+        if (i != x)
+        {
+            if (options[x] == options[i])
+            {
+                cout << "\n Accessibility Compare " << nextAccessibility(x) << " "<< nextAccessibility(i);
+
+            }
+        }
+        
+    }
+    cout << endl;
+    
+
+
+
+
+
+
+
+
+
+
+    return x;
 }
