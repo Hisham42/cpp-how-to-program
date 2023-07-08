@@ -2,12 +2,13 @@
 #include <iomanip>
 #include <array>
 
+
 using namespace std;
 
 int main() {
 
     //initialize array size
-    int size = 1000;
+    int size = 3;
 
     //create an array
     int primeNumbers [size];

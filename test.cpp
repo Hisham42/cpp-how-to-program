@@ -3,6 +3,7 @@
 #include <iostream>
 #include <array>
 using namespace std;
+
  
 const size_t arraySize{10};
 void someFunction(const array<int, arraySize>&, size_t); // prototype
