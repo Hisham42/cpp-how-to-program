@@ -94,9 +94,6 @@ void Quad::solve()
     }
     
 }
-    
-
-
 
 void Quad::getA()
 {
