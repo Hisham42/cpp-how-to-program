@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                          #include <string>
+#include <string>
 
 // prevent multiple inclusions of header
 #ifndef DATE_H
