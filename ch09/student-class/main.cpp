@@ -10,7 +10,7 @@ int main()
 
 
    
-    Name nAhmed("", "Mohamed", "Mousa");
+    Name nAhmed("s", "Mohamed", "Mousa");
 
 
 
