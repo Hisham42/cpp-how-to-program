@@ -21,16 +21,6 @@ int main()
 
     A.getDate();
  
-    
-    
-    
-    
-    
-
-
-
-  
-    
 
 
 
