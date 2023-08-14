@@ -1,3 +1,5 @@
+#include "co.h"
+
 #ifndef REC_H
 #define REC_H
 
@@ -5,10 +7,14 @@
 class Rectangle
 {
 private:
+    CO rc1, rc2, rc3, rc4;
     double length, width;
 public:
-    Rectangle(double len=1, double wid=1);
+    Rectangle(CO c1, CO c2, CO c3, CO c4);
     ~Rectangle();
+
+    //predicate
+    bool isSquare();
 
     //getters
     double getPerimeter();
@@ -17,8 +23,10 @@ public:
     double getWidth();
 
     //setters
-    void setLength(double l);
-    void setWidth(double w);
+    void setRectangle(CO c1, CO c2, CO c3, CO c4);
+
+    //void
+    void drawRec();
 
 };
 

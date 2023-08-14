@@ -5,16 +5,23 @@ using namespace std;
 
 int main()
 {
-    Rectangle a1(12, 4);
+    CO r1 (1, 2);
+    CO r2 (16, 2);
+    CO r3 (1, 12);
+    CO r4 (16, 12);
 
-    cout << a1.getPerimeter() << endl;
+    Rectangle rec1 (r1, r2, r3, r4);
 
-    cout << a1.getArea() << endl;
-
-
-    Rectangle a2(4, 12);
-
-    cout << a2.getPerimeter() << endl;
-    cout << a2.getArea() << endl;
+    if (rec1.isSquare())
+    {
+        cout << "It is a square." << endl;
+    }
+    
+    cout << "Width: " << rec1.getWidth() << endl;
+    cout << "Length: " << rec1.getLength() << endl;
+    cout << "Perimeter: " << rec1.getPerimeter() << endl;
+    cout << "Area: " << rec1.getArea() << endl;
+    rec1.drawRec();
+    
 
 }
