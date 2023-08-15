@@ -1,8 +1,8 @@
 #include "co.h"
+#include <string>
 
 #ifndef REC_H
 #define REC_H
-
 
 class Rectangle
 {
@@ -26,7 +26,7 @@ public:
     void setRectangle(CO c1, CO c2, CO c3, CO c4);
 
     //void
-    void drawRec();
+    void drawRec(char a='r', char fill='w', int scale=2);
 
 };
 
