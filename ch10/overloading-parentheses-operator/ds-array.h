@@ -36,8 +36,6 @@ public:
 
     bool operator!=(DsArray&) const;
 
-
-
 };
 
 
