@@ -8,6 +8,8 @@
 #include "SalariedEmployee.h" 
 #include "CommissionEmployee.h"  
 #include "BasePlusCommissionEmployee.h" 
+#include "piece-worker.h"
+#include "hourly-worker.h"
 #include "Date.h"
 #include <ctime>
 
@@ -28,10 +30,21 @@ int main() {
    BasePlusCommissionEmployee basePlusCommissionEmployee{
       "Bob", "Lewis", "444-44-4444", 5000, .04, 300, 3, 16, 1994};
 
+   PieceWorker pieceWorkerEmployee{
+      "Ahmed", "Ghaish", "555-55-5555", 2, 10, 1990, 12, 50
+   };
+
+   HourlyWorker hourlyWorkerEmployee{
+      "Hisham", "Ghaish", "666-66-6666", 2, 10, 1987, 20, 50
+   };
+
+   
+
    
    // create and initialize vector of three base-class pointers        
    vector<Employee *> employees{&salariedEmployee, &commissionEmployee,
-      &basePlusCommissionEmployee};
+      &basePlusCommissionEmployee, &pieceWorkerEmployee,
+       &hourlyWorkerEmployee};
    
    for (const Employee* employeePtr : employees) {
       
