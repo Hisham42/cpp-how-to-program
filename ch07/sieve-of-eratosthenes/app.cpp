@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 
     //initialize array size
-    int size = 3;
+    int size = 10;
 
     //create an array
     int primeNumbers [size];

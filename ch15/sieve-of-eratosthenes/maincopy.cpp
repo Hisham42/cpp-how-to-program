@@ -48,9 +48,10 @@ int main() {
     }
 
     // enter a number to check if Prime or not
-    int prime{0};
+    int prime{0}, prime2{0};
     cout << "Enter a number: " << "\n";
     cin >> prime;
+    prime2 = prime;
     deque<int> li;
     if (a[prime] == true )
     {
@@ -61,21 +62,37 @@ int main() {
         cout << "Is not Prime" << endl;
         
 
-        for (int i = prime - 1; i > 1; i--)
+        for (int i = prime - 1; i > 1; )
         {
             if (a[i] != 0 && prime % i == 0)
             {
                 li.push_front(i);
+                prime /= i;
                 
+                
+            }
+            else 
+            {
+                i--;
             }
             
         }
     }
 
+    cout << "The unique prime factorization of " << prime2 << " is: ";
 
     for (auto ite = li.begin(); ite != li.end(); ite++)
     {
-        cout << *ite << "\n";
+        if (ite == li.end() - 1)
+        {
+            cout << *ite << endl;
+        }
+        else
+        {
+            cout << *ite << " * ";
+        }
+        
+        
     }
     
 

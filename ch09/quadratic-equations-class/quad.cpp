@@ -90,7 +90,7 @@ void Quad::solve()
     }
     else
     {
-        std::cout << "No Real Roots." << std::endl;
+        throw(NoRealRootException{});
     }
     
 }

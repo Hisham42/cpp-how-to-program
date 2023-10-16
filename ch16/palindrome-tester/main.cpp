@@ -8,7 +8,7 @@ void palindromeTester(std::string);
 
 int main() {
 
-    palindromeTester("able was i  , ere i saw elba");
+    palindromeTester("able was i  , ere i sa;w elba");
     
     
     

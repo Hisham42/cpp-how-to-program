@@ -16,11 +16,26 @@ int main(){
     one.getB();
     one.getC();
 
-    one.solve();
-
+    try
+    {
+        one.solve();
+    }
+    catch(const NoRealRootException& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
     Quad three(3, -6, 3);
     three.tostring();
     
-    three.solve();
+    try
+    {
+        three.solve();
+    }
+    catch(const std::runtime_error& e)
+    {
+        
+        std::cerr << e.what() << '\n';
+    }
 
 }

@@ -1,6 +1,8 @@
 #ifndef QUAD_H
 #define QUAD_H
 
+#include "NoRealRootException.h"
+
 
 class Quad
 {
