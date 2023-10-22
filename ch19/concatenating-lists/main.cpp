@@ -20,5 +20,18 @@ int main() {
     b.print();
 
     
-    concatenate(a, b);
+    
+
+    List c = concatenate(a, b);
+    c.print();
+
+
+
+    List d = split(4, c);
+
+    c.print();
+
+    d.print();
+    
+    
 }

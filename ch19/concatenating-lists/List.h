@@ -6,14 +6,12 @@
 class List : private Node
 {
 private:
-    Node* firstNode = new Node;
+    Node* firstNode;
     Node* lastNode;
+    
 public:
-    List(char c='\0') {
-        
-        firstNode->value = c;
-        lastNode = firstNode;
-    }
+    List(char c='\0')
+    : firstNode(new Node(c)), lastNode(firstNode) {}
 
     ~List() {
         Node* temp;
@@ -23,6 +21,7 @@ public:
             temp = firstNode;
             firstNode = firstNode->nextNode;
             delete temp;
+            temp = nullptr;
 
         }
         
@@ -45,10 +44,9 @@ public:
 
         }
 
-        
-
     }
 
+   
 
     bool isempty() {
 
@@ -67,12 +65,12 @@ public:
         {
             Node* currentPtr = firstNode;
 
-            while (currentPtr != nullptr)
+            while (currentPtr != lastNode)
             {
                 std::cout << currentPtr->value << " ";
                 currentPtr = currentPtr->nextNode;
             }
-            std::cout << std::endl;
+            std::cout << lastNode->value << std::endl;
             
         }
         else
@@ -83,8 +81,8 @@ public:
     }
 
 
-    friend void concatenate(const List& l1, const List& l2) {
-        List* l3 = new List;
+    friend List concatenate(const List& l1, const List& l2) {
+        List l3;
 
         //copy l1
         Node* temp{nullptr};
@@ -93,24 +91,56 @@ public:
         while (temp!= nullptr)
         {
             c = temp->value;
-            l3->insertChar(c);
+            l3.insertChar(c);
             temp = temp->nextNode;
         }
         temp = l2.firstNode;
         while (temp!= nullptr)
         {
             c = temp->value;
-            l3->insertChar(c);
+            l3.insertChar(c);
             temp = temp->nextNode;
         }
         
-        l3->print();
+        return l3;
         
-
-        delete l3;
     }
 
+    //function spilt, takes int indicating the split point
+    //and a list to manipulate
+    //it will retrun a new list with the remaing nodes
+    friend List split(int splittingPoint, List& li) {
+        //check if the splitting point is valid or not
+        List splittedList;
 
+        Node* tempPtr = li.firstNode;
+        Node* newLast;
+        int counter{1};
+
+        while (splittingPoint != counter)
+        {   
+            newLast = tempPtr;
+            tempPtr = tempPtr->nextNode;
+            counter++;
+        }
+
+        
+        Node* assistant = tempPtr;
+
+        while (tempPtr != nullptr)
+        {
+            char c = tempPtr->value;
+            splittedList.insertChar(c);
+            tempPtr = tempPtr->nextNode;
+        }
+
+        tempPtr = newLast;
+        
+        li.lastNode = newLast;
+        return splittedList;
+        
+        
+    }
 
 };
 
