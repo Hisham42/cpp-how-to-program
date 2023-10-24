@@ -19,6 +19,8 @@ int main() {
     b.insertChar('j');
     b.print();
 
+
+
     
     
 
@@ -32,6 +34,11 @@ int main() {
     c.print();
 
     d.print();
+
+
+    List e = reverse(d);
+
+    e.print();
     
     
 }

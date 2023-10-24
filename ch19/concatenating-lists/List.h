@@ -142,6 +142,39 @@ public:
         
     }
 
+
+    friend List reverse(List& li) {
+
+        List newList; // create an empty list
+        Node* ptr{nullptr}; // create a Ptr
+        ptr = li.firstNode; // assign ptr to the targetted list
+
+        reverseHelper(ptr, newList); // recursive function to insert reverse
+
+        return newList;
+        
+    }
+
+    friend bool reverseHelper(Node* ptr, List& newList) {
+
+        // base
+        if (ptr->nextNode == nullptr)
+            {   
+                newList.insertChar(ptr->value);         
+                return true;
+            }
+        // recursive function
+        if (reverseHelper(ptr->nextNode, newList))
+        {
+            newList.insertChar(ptr->value);
+            return true;
+        }
+
+        return false;
+    }
+
+
+
 };
 
 

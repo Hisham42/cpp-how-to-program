@@ -5,18 +5,14 @@
 
 class Node
 {
-private:
-    /* data */
+
 public:
 
     char value{'\0'};
     Node* nextNode{nullptr};
     
-    Node(char c = '\0') : value(c), nextNode(nullptr) {}
+    Node(char c = '\0') : value(c) {}
 
-    ~Node() {
-        
-    }
 };
 
 #endif
