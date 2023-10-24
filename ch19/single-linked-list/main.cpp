@@ -5,14 +5,14 @@ int main() {
 
    
 
-    List a('a');
+    List<char> a('a');
     a.insertChar('b');
     a.insertChar('c');
     a.insertChar('d');
     a.insertChar('e');
     a.print();
 
-    List b('f');
+    List<char> b('f');
     b.insertChar('g');
     b.insertChar('h');
     b.insertChar('i');

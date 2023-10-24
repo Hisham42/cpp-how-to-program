@@ -3,18 +3,19 @@
 
 #include "Node.h"
 
-class List : private Node
+template<typename T>
+class List : private Node<T>
 {
 private:
-    Node* firstNode;
-    Node* lastNode;
+    Node<T>* firstNode;
+    Node<T>* lastNode;
     
 public:
-    List(char c='\0')
-    : firstNode(new Node(c)), lastNode(firstNode) {}
+    List(T c= T())
+    : firstNode(new Node<T>(c)), lastNode(firstNode) {}
 
     ~List() {
-        Node* temp;
+        Node<T>* temp;
         
         while (firstNode != nullptr)
         {
@@ -27,7 +28,7 @@ public:
         
     }
 
-    void insertChar(char c) {
+    void insert(T c) {
 
         if (isempty())
         {
@@ -36,7 +37,7 @@ public:
         
         else
         {
-            Node* insertedNode = new Node;
+            Node<T>* insertedNode = new Node<T>;
             (*insertedNode).value = c;
             insertedNode->nextNode = nullptr;
             (*lastNode).nextNode = insertedNode;
@@ -63,7 +64,7 @@ public:
 
         if (!isempty())
         {
-            Node* currentPtr = firstNode;
+            Node<T>* currentPtr = firstNode;
 
             while (currentPtr != lastNode)
             {
@@ -81,11 +82,11 @@ public:
     }
 
 
-    friend List concatenate(const List& l1, const List& l2) {
-        List l3;
+    friend List<T> concatenate(const List<T>& l1, const List<T>& l2) {
+        List<T> l3;
 
         //copy l1
-        Node* temp{nullptr};
+        Node<T>* temp{nullptr};
         char c;
         temp = l1.firstNode;
         while (temp!= nullptr)
@@ -109,12 +110,12 @@ public:
     //function spilt, takes int indicating the split point
     //and a list to manipulate
     //it will retrun a new list with the remaing nodes
-    friend List split(int splittingPoint, List& li) {
+    friend List<T> split(int splittingPoint, List<T>& li) {
         //check if the splitting point is valid or not
         List splittedList;
 
-        Node* tempPtr = li.firstNode;
-        Node* newLast;
+        Node<T>* tempPtr = li.firstNode;
+        Node<T>* newLast;
         int counter{1};
 
         while (splittingPoint != counter)
@@ -125,7 +126,7 @@ public:
         }
 
         
-        Node* assistant = tempPtr;
+        Node<T>* assistant = tempPtr;
 
         while (tempPtr != nullptr)
         {
@@ -143,10 +144,10 @@ public:
     }
 
 
-    friend List reverse(List& li) {
+    friend List<T> reverse(List<T>& li) {
 
-        List newList; // create an empty list
-        Node* ptr{nullptr}; // create a Ptr
+        List<T> newList; // create an empty list
+        Node<T>* ptr{nullptr}; // create a Ptr
         ptr = li.firstNode; // assign ptr to the targetted list
 
         reverseHelper(ptr, newList); // recursive function to insert reverse
@@ -155,7 +156,7 @@ public:
         
     }
 
-    friend bool reverseHelper(Node* ptr, List& newList) {
+    friend bool reverseHelper(Node<T>* ptr, List<T>& newList) {
 
         // base
         if (ptr->nextNode == nullptr)
