@@ -11,7 +11,6 @@ int main() {
     stack.push('d');
     stack.print();
 
-
     list.insert(stack.pop());
     list.insert(stack.pop());
     list.insert(stack.pop());
