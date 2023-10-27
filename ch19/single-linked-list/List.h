@@ -10,7 +10,7 @@ private:
     Node<T>* firstNode;
     Node<T>* lastNode;
 
-    Node<T>* recSearchHelper(Node<T>* n, T value) {
+    Node<T>* recSearchHelper(Node<T>*& n, T value) {
         
         if (n->value == value)
         {

@@ -88,29 +88,24 @@ private:
         }
     }
 
-    bool searchHelper(T valuePassed, TreeNode<T>* n) {
+    void searchHelper(T valuePassed, TreeNode<T>*& n, TreeNode<T>*& temp) {
 
-        if (n != nullptr)
+        if (n->value == valuePassed)
         {
-            if (n->value == valuePassed)
-            {
-                std::cout << valuePassed << " was found!" << std::endl;
-                return true;
-            }
-            else if (n->value > valuePassed){
-                searchHelper(valuePassed, n->leftPtr);
-            }
-
-            else if (n->value < valuePassed) {
-                searchHelper(valuePassed, n->rightPtr);
-            }
-
-            return true;
-            
+            temp = n;
         }
-        else {
-            return false;
+
+        if (n->leftPtr !=nullptr)
+        {
+            searchHelper(valuePassed, n->leftPtr,  temp);
         }
+
+        if (n->rightPtr !=nullptr)
+        {
+            searchHelper(valuePassed, n->rightPtr,  temp);
+        }
+
+        
         
     }
 
@@ -164,11 +159,11 @@ public:
         deleteHelper(root);
     }
 
-    void search(int valuePassed) {
-        if (!searchHelper(valuePassed, root))
-        {
-            std::cout << valuePassed << " was not found!" << std::endl;
-        }
+    TreeNode<T>* search(int valuePassed) {
+
+        TreeNode<T>* temp{nullptr};
+        searchHelper(valuePassed, root, temp);
+        return temp;
     }
 
     int depth() {

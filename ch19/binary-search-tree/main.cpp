@@ -70,6 +70,10 @@ int main() {
 
     alpha.inOrderTraversal();
     std::cout << alpha.depth() << std::endl;
+    std::cout << alpha.search(87)->value << std::endl;
+
+
+    
 
 }
 
