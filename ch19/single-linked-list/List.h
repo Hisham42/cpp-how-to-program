@@ -9,6 +9,35 @@ class List : private Node<T>
 private:
     Node<T>* firstNode;
     Node<T>* lastNode;
+
+    Node<T>* recSearchHelper(Node<T>* n, T value) {
+        
+        if (n->value == value)
+        {
+            return n;
+        }
+
+        if (n->nextNode != nullptr)
+        {
+            recSearchHelper(n->nextNode, value);
+            return nullptr;
+        }
+        
+        return nullptr;
+        
+    }
+
+    void recPrintHelper(Node<T>* n) {
+
+        if (n->nextNode != nullptr)
+        {
+            recPrintHelper(n->nextNode);
+        }
+
+        std::cout << n->value << " ";
+        
+    }
+
     
 public:
     List(T c= T())
@@ -85,18 +114,9 @@ public:
         recPrintHelper(firstNode);
     }
 
-    void recPrintHelper(Node<T>* n) {
-
-        if (n->nextNode != nullptr)
-        {
-            recPrintHelper(n->nextNode);
-        }
-
-        std::cout << n->value << " ";
-        
-        
-        
-        
+    
+    Node<T>* recSearch(T value) {
+        return recSearchHelper(firstNode, value);
         
     }
 

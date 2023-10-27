@@ -20,10 +20,17 @@ int main() {
     b.print();
     b.recPrint();
 
+    std::cout << (b.recSearch('f'))->value << std::endl;
 
+    Node<char>* newNode = new Node<char>('w');
 
-    
-    
+    Node<char>* temp = b.recSearch('f')->nextNode;
+
+    b.recSearch('f')->nextNode = newNode;
+    newNode->nextNode = temp;
+
+    b.print();
+
 
     
     
