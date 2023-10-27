@@ -10,6 +10,7 @@ class Tree : private TreeNode<T>
 private:
     // node
     TreeNode<T>* root;
+    
 
     // helper function to insert a new node
     void insertNode(T value, TreeNode<T>* n) {
@@ -113,7 +114,36 @@ private:
         
     }
 
-    
+    void depthHelper(TreeNode<T>* n, int depthValue, int& l) {
+
+        
+        // check root
+        // does it have left or right 
+        if (n->isLeaf())
+        {
+            if (l < depthValue)
+            {
+                l = depthValue;
+            }
+            
+        }
+        else 
+        {   
+            if (n->leftPtr != nullptr)
+            {
+                depthHelper(n->leftPtr, depthValue + 1, l);
+            }
+
+            if (n->rightPtr != nullptr)
+            {
+                depthHelper(n->rightPtr, depthValue + 1, l);
+            }
+        }
+        
+        
+
+    }    
+
 public:
     // constructor
     Tree(T rootValue) {
@@ -140,6 +170,15 @@ public:
             std::cout << valuePassed << " was not found!" << std::endl;
         }
     }
+
+    int depth() {
+        int level{0};
+        depthHelper(root, 1, level);
+        return level;
+    }
+
+    
+
 };
 
 

@@ -49,7 +49,8 @@ int main() {
     std::cout << sizeof(tree1) << std::endl;
     std::cout << sizeof(vector1) << std::endl;
 
-    */
+   
+     */
 
     Tree<int> alpha(20);
     alpha.insert(28);
@@ -63,8 +64,12 @@ int main() {
     alpha.insert(92);
     alpha.insert(42);
     alpha.insert(2);
+    alpha.insert(33);
+    alpha.insert(45);
+    alpha.insert(87);
 
     alpha.inOrderTraversal();
+    std::cout << alpha.depth() << std::endl;
 
 }
 
