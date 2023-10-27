@@ -176,39 +176,7 @@ public:
         
     }
 
-    Stack<char> convertToPostfix() {
-        Stack postfix('(');
-        push(')');
-
-        StackNode<char>* temp = base;
-        while (!isempty())
-        {
-            if (isdigit(temp->value))
-            {
-                push(temp->value);
-            }
-            else if (temp->value == '(')
-            {
-                push(temp->value);
-            }
-            else if (temp->isOperator())
-            {
-                
-            }
-            else if (temp->value == ')')
-            {
-                
-            }
-
-
-            temp = temp->right;
-        }
-
-        return postfix;
-    }
-
-
-
+    
 };
 
 

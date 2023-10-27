@@ -16,13 +16,6 @@ int getRandomTime() {
 // if service time passed from the customer arrival >> deque the customer
 // if arrival time passed from the customer arrival >> enque a new customer and repeat the process
 
-
-
-
-
-
-
-
 int main() {
 
     Queue<int> checkOutLine;
@@ -38,7 +31,13 @@ int main() {
         if (i > checkOutLine.queueHeadArrivalTime() + checkOutLine.queueHeadServiceTime() && !checkOutLine.isempty())
         {
             checkOutLine.dequeue();
-            lastCustomerNumber = checkOutLine.queueHeadCustomerNumber();
+            
+            if (checkOutLine.queueHeadCustomerNumber() != 0)
+            {
+                lastCustomerNumber = checkOutLine.queueHeadCustomerNumber();
+            }
+            
+            
 
         }
 
@@ -63,7 +62,7 @@ int main() {
            
     }
 
-    
+    checkOutLine.print();
     std::cout << "Last Customer Number = " << lastCustomerNumber << std::endl;
     std::cout << "Max Customers Queue = " << maxCurrentCustomers << std::endl;
     std::cout << "Max Wait Time = " << maxWaitTime << std::endl;

@@ -3,6 +3,8 @@
 #include <chrono>
 
 int main() {
+
+    /*
     Tree<int> tree1(12);
     
 
@@ -47,7 +49,22 @@ int main() {
     std::cout << sizeof(tree1) << std::endl;
     std::cout << sizeof(vector1) << std::endl;
 
-    
+    */
+
+    Tree<int> alpha(20);
+    alpha.insert(28);
+    alpha.insert(23);
+    alpha.insert(6);
+    alpha.insert(100);
+    alpha.insert(27);
+    alpha.insert(18);
+    alpha.insert(11);
+    alpha.insert(28);
+    alpha.insert(92);
+    alpha.insert(42);
+    alpha.insert(2);
+
+    alpha.inOrderTraversal();
 
 }
 
