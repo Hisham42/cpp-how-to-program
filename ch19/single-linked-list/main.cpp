@@ -18,27 +18,13 @@ int main() {
     b.insertChar('i');
     b.insertChar('j');
     b.print();
+    b.recPrint();
 
 
 
     
     
 
-    List c = concatenate(a, b);
-    c.print();
-
-
-
-    List d = split(4, c);
-
-    c.print();
-
-    d.print();
-
-
-    List e = reverse(d);
-
-    e.print();
     
     
 }

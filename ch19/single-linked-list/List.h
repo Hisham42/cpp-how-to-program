@@ -81,6 +81,25 @@ public:
         
     }
 
+    void recPrint() {
+        recPrintHelper(firstNode);
+    }
+
+    void recPrintHelper(Node<T>* n) {
+
+        if (n->nextNode != nullptr)
+        {
+            recPrintHelper(n->nextNode);
+        }
+
+        std::cout << n->value << " ";
+        
+        
+        
+        
+        
+    }
+
 
     friend List<T> concatenate(const List<T>& l1, const List<T>& l2) {
         List<T> l3;
