@@ -216,7 +216,26 @@ public:
         
     }
 
-    
+    void outputTree(int totalSpaces) {
+        totalSpaces = 0;
+        outputTreeHelper(root, totalSpaces);
+    }
+
+    void outputTreeHelper(TreeNode<T>* n, int t) {
+        while (n != nullptr)
+        {
+            outputTreeHelper(n->rightPtr, t + 5);
+            for (size_t i = 0; i < t; i++)
+            {
+                std::cout << " ";
+            }
+            std::cout << n->value << std::endl;
+            n = n->leftPtr;
+            t += 5;
+            
+        }
+        
+    }
 
 };
 

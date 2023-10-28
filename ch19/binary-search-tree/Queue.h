@@ -49,7 +49,7 @@ public:
         }
         else if (head == tail && head->treeNode->value != T())
         {
-            head->treeNode->value = T();
+            head->treeNode = nullptr;
         }
         else if (tail->next == head)
         {

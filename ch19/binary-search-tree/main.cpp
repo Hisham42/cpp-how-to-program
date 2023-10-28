@@ -73,9 +73,8 @@ int main() {
     std::cout << alpha.depth() << std::endl;
     std::cout << alpha.search(87)->value << std::endl;
 
-  */
     
-    
+      */
 
     Tree<int> tree(49);
     tree.insert(28);
@@ -94,8 +93,16 @@ int main() {
     tree.insert(99);
 
     tree.inOrderTraversal();
+    tree.outputTree(5);    
 
     tree.levelOrderTraversal();
+
+ 
+
+
+
+    
+
 
 }
 
