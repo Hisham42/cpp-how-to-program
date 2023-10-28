@@ -1,4 +1,5 @@
 #include "Tree.h"
+#include "Queue.h"
 #include <vector>
 #include <chrono>
 
@@ -50,7 +51,7 @@ int main() {
     std::cout << sizeof(vector1) << std::endl;
 
    
-     */
+   
 
     Tree<int> alpha(20);
     alpha.insert(28);
@@ -72,8 +73,29 @@ int main() {
     std::cout << alpha.depth() << std::endl;
     std::cout << alpha.search(87)->value << std::endl;
 
-
+  */
     
+    
+
+    Tree<int> tree(49);
+    tree.insert(28);
+    tree.insert(83);
+    tree.insert(18);
+    tree.insert(40);
+    tree.insert(11);
+    tree.insert(19);
+    tree.insert(32);
+    tree.insert(44);
+    tree.insert(71);
+    tree.insert(97);
+    tree.insert(69);
+    tree.insert(72);
+    tree.insert(92);
+    tree.insert(99);
+
+    tree.inOrderTraversal();
+
+    tree.levelOrderTraversal();
 
 }
 

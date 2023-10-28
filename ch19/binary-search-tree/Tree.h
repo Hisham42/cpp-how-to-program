@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "TreeNode.h"
+#include "Queue.h"
 
 template<typename T>
 class Tree : private TreeNode<T>
@@ -144,10 +145,18 @@ public:
     Tree(T rootValue) {
         root = new TreeNode<T>(rootValue); // this will grant a node space in the heap for the *
     }
+    Tree() {
+        root = new TreeNode<T>(T()); // this will grant a node space in the heap for the *
+    }
 
     // insert node
     void insert(T value) {
-        insertNode(value, root);   
+        if (root->value == T())
+        {
+            root->value = value;
+        }
+        else
+            insertNode(value, root);   
     }
 
     void inOrderTraversal() {
@@ -170,6 +179,41 @@ public:
         int level{0};
         depthHelper(root, 1, level);
         return level;
+    }
+
+    TreeNode<T>* getRoot() {
+        return root;
+    }
+
+    void levelOrderTraversal() {
+        Queue<T> queue;
+        TreeNode<T>* temp = getRoot();
+        queue.enqueue(temp);
+        while (!queue.isempty())
+        {
+            queue.printHead();
+
+            if (temp->leftPtr != nullptr)
+            {
+                queue.enqueue(temp->leftPtr);
+            }
+            if (temp->rightPtr != nullptr)
+            {
+                queue.enqueue(temp->rightPtr);
+            }
+            
+            queue.dequeue();
+
+            if (queue.getHead()->treeNode != nullptr)
+            {
+                temp = queue.getHead()->treeNode;
+            }
+            
+            
+
+        }
+        std::cout << std::endl;
+        
     }
 
     
