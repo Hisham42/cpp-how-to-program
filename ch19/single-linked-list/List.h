@@ -57,26 +57,73 @@ public:
         
     }
 
-    void insertChar(T c) {
+    void insert(T c) {
 
-        if (isempty())
-        {
+        if (isempty()) {
             firstNode->value = c;
         }
-        
-        else
-        {
-            Node<T>* insertedNode = new Node<T>;
-            (*insertedNode).value = c;
+        else {
+            Node<T>* insertedNode = new Node<T>(c);
             insertedNode->nextNode = nullptr;
-            (*lastNode).nextNode = insertedNode;
+            lastNode->nextNode = insertedNode;
             lastNode = insertedNode;
-
         }
-
     }
 
-   
+    void inserAt(int place, T value) {
+        
+        Node<T>* newNode = new Node<T>(value); // create a pointer to carry the new Value
+        Node<T>* prevTemp = firstNode; // create a temp PTR points to the first value
+        int currentPlace = 0; // the initial place for the first node
+
+        while (prevTemp != nullptr) // as long as temp != null move forward until you reach the place
+        {
+            if (currentPlace == place - 1) // if we reached the prev insertion place
+            {
+
+                break; // quit the loop
+            }
+            
+            prevTemp = prevTemp->nextNode; // move forward
+            currentPlace++;
+        }
+
+        if (currentPlace != place - 1)
+        {
+            delete newNode;
+            std::cerr << "Invalid Insertion Place" << std::endl;
+        }
+        else
+        {
+            Node<T>* nxtTemp = prevTemp->nextNode;
+            prevTemp->nextNode = newNode; // now the new node will point to temp.next
+            newNode->nextNode = nxtTemp; // then
+        }
+    }
+
+    void deleteAt(int place) {
+        Node<T>* prevTemp = firstNode; // create a temp PTR points to the first value
+        int currentPlace = 0; // the initial place for the first node
+
+        while (prevTemp != nullptr) // as long as temp != null move forward until you reach the place
+        {
+            if (currentPlace == place - 1) // if we reached the prev insertion place
+            {
+                break; // quit the loop
+            }
+            prevTemp = prevTemp->nextNode; // move forward
+            currentPlace++;
+        }
+        if (currentPlace != place - 1)
+        {
+            std::cerr << "Invalid Deletion Place" << std::endl;
+        }
+        else {
+            Node<T>* target = prevTemp->nextNode;
+            prevTemp->nextNode = target->nextNode;
+            delete target;
+        }
+    }
 
     bool isempty() {
 
@@ -113,13 +160,11 @@ public:
     void recPrint() {
         recPrintHelper(firstNode);
     }
-
-    
+   
     Node<T>* recSearch(T value) {
         return recSearchHelper(firstNode, value);
         
     }
-
 
     friend List<T> concatenate(const List<T>& l1, const List<T>& l2) {
         List<T> l3;
@@ -182,7 +227,6 @@ public:
         
     }
 
-
     friend List<T> reverse(List<T>& li) {
 
         List<T> newList; // create an empty list
@@ -195,7 +239,7 @@ public:
         
     }
 
-    friend bool reverseHelper(Node<T>* ptr, List<T>& newList) {
+    bool reverseHelper(Node<T>* ptr, List<T>& newList) {
 
         // base
         if (ptr->nextNode == nullptr)

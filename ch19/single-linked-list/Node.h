@@ -9,10 +9,11 @@ class Node
 
 public:
 
-    T value{'\0'};
-    Node<T>* nextNode{nullptr};
+    T value;
+    Node<T>* nextNode;
     
-    Node(T c = '\0') : value(c) {}
+    Node(T c) : value(c) {}
+    Node() : value(T()), nextNode(nullptr) {}
 
 };
 
