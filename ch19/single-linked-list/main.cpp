@@ -18,7 +18,10 @@ int main() {
 
     b.deleteAt(3);
 
+    b.insertAtBack('a');
     
+    b.insertAtBack('a');
+
     b.print();
     
 }

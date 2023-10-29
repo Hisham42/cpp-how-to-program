@@ -40,19 +40,20 @@ private:
 
     
 public:
-    List(T c= T())
+    List(T c)
     : firstNode(new Node<T>(c)), lastNode(firstNode) {}
 
-    ~List() {
-        Node<T>* temp;
-        
-        while (firstNode != nullptr)
-        {
-            temp = firstNode;
-            firstNode = firstNode->nextNode;
-            delete temp;
-            temp = nullptr;
+    List()
+    : firstNode(new Node<T>(T())), lastNode(firstNode) {}
 
+    ~List() {
+        Node<T>* temp = firstNode;
+        Node<T>* current;
+        while (temp != nullptr)
+        {
+            current = temp;
+            temp = temp->nextNode;
+            delete current;
         }
         
     }
@@ -142,12 +143,12 @@ public:
         {
             Node<T>* currentPtr = firstNode;
 
-            while (currentPtr != lastNode)
+            while (currentPtr != nullptr)
             {
                 std::cout << currentPtr->value << " ";
                 currentPtr = currentPtr->nextNode;
             }
-            std::cout << lastNode->value << std::endl;
+            std::cout << std::endl;
             
         }
         else
@@ -255,6 +256,20 @@ public:
         }
 
         return false;
+    }
+
+    // insert at back using first PTR only
+
+    void insertAtBack(T value) {
+        Node<T>* backPtr = firstNode;
+        while (backPtr->nextNode != nullptr)
+        {
+            backPtr = backPtr->nextNode;
+        }
+        
+        Node<T>* newNode = new Node<T>(value);
+        backPtr->nextNode = newNode;
+        newNode->nextNode = nullptr;
     }
 
 
