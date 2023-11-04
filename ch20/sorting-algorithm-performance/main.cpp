@@ -4,6 +4,78 @@
 #include <random>
 #include <chrono>
 #include <array>
+void swap(int& a, int&b) {
+    int c = a;
+    a = b;
+    b = c;
+}
+
+void quickSort(int* a,int start ,int size) {
+
+    
+
+    if (size - 1 - start > 0)
+    {   
+        int target = start;
+        int leftLimit = start;
+        int rightLimit = size - 1;
+        bool controller1{true};
+
+        while (true)
+        {
+            controller1 = false;
+
+            for (int i = rightLimit; i > target; i--)
+            {
+                if (a[i] < a[target])
+                {
+                    swap(a[i], a[target]);
+                    leftLimit = target + 1;
+                    target = i;
+                    
+                    controller1 = true;
+                    
+                    break;
+                }
+               
+            }
+
+
+            for (int j = leftLimit; j < target; j++)
+            {
+                if (a[j] > a[target] )
+                {
+                    swap(a[j] , a[target]);
+
+                    rightLimit = target - 1;
+
+                    target = j;
+
+                    controller1 = true;
+                    
+                    break;
+                }
+            
+                
+            }
+
+            if (controller1 == false)
+            {
+                break;
+            }
+            
+            
+            
+        }
+       
+        quickSort(a, start, target);
+        quickSort(a, target + 1, size);
+        
+        
+    }
+    
+}
+
 
 void insertionSort(int* items, int size) {                           
    // loop over the elements of the array                               
@@ -171,6 +243,13 @@ int main(int argc, char* argv[]) {
         tempArray3[i] = tempArray[i];
     }
 
+    int* tempArray4 = new int[numbersGenerated];
+
+    for (size_t i = 0; i < numbersGenerated; i++)
+    {
+        tempArray4[i] = tempArray[i];
+    }
+
 
     auto start = std::chrono::high_resolution_clock::now();
     // Perform your specific operation here
@@ -185,7 +264,7 @@ int main(int argc, char* argv[]) {
     start = std::chrono::high_resolution_clock::now();
     // Perform your specific operation here
 
-    selectionSort(tempArray, numbersGenerated);
+    selectionSort(tempArray2, numbersGenerated);
 
     stop = std::chrono::high_resolution_clock::now();
     duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
@@ -194,14 +273,24 @@ int main(int argc, char* argv[]) {
     start = std::chrono::high_resolution_clock::now();
     // Perform your specific operation here
 
-    mergeSort(tempArray,0 ,numbersGenerated);
+    mergeSort(tempArray3,0 ,numbersGenerated);
 
     stop = std::chrono::high_resolution_clock::now();
     duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     std::cout << "mergeSort: " << duration.count() << " microseconds" << std::endl;
+
+    start = std::chrono::high_resolution_clock::now();
+    // Perform your specific operation here
+
+    quickSort(tempArray4,0 ,numbersGenerated);
+
+    stop = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+    std::cout << "quickSort: " << duration.count() << " microseconds" << std::endl;
     
     delete[] tempArray;
     delete[] tempArray2;
     delete[] tempArray3;
+    delete[] tempArray4;
     file.close();
 }
