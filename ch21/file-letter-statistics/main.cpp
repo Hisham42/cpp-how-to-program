@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <sstream>
 
@@ -16,15 +17,34 @@ bool isIn(std::string::iterator& iter, std::stringstream& b) {
     }
 
     return false;
-    
-    
 }
 
 int main() {
+
+    std::fstream file;
+
+    file.open("paragraph.txt", std::ios::out | std::ios::in);
+
+    if (!file.is_open())
+    {
+        std::cerr << "Cannot open file!" << std::endl;
+    }
+    
     std::string a{""};
+
     std::stringstream ss{""};
 
-    getline(std::cin, a);
+    char b{'\0'};
+
+
+    while (file)
+    {   
+        file >> b;
+        if (std::isalpha(b) && b !=' ')
+        {
+            a.push_back(b);
+        }
+    }
 
     for (auto i = a.begin(); i != a.end(); i++)
     {
@@ -36,11 +56,10 @@ int main() {
             {
                 num++;
             }
-            
         }
         
 
-        if (*i != ' ' && !isIn(i, ss))
+        if (!isIn(i, ss))
         {
             std::cout << *i << ": ";
 
