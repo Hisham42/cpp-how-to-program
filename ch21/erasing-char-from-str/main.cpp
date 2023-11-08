@@ -19,5 +19,13 @@ int main() {
     }
     
     std::cout << a << std::endl;  
+
+    std::string s = "Mousa Hisham Mo Mo";
+
+    auto i = s.end() - 2;
+    auto ii = s.end();
+    s.erase(i, ii);
+
+    std::cout << s << std::endl;  
     
 }
