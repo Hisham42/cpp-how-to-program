@@ -34,6 +34,35 @@ std::string decrypt(std::string input) {
     
 }
 
+void decryptUsing(std::string input) {
+
+    char common[] = {'a', 'e', 'o', 'i', 'u', 's', 't', 'r'};
+
+    for (size_t i = 0; i < input.size(); i++)
+    {
+        for (size_t j = 0; j < 8; j++)
+        {
+        
+            char key = input[i] - common[j];
+            
+            std::stringstream userIn{""};
+            std::string retur;
+
+            for (auto i = input.begin(); i != input.end(); i++)
+            {
+                userIn << char(*i - key);
+            }
+
+            userIn >> retur;
+
+            std::cout << retur << std::endl;
+
+        }
+        
+
+    }
+}
+
 int main() {
     std::string input;
     std::cout << "Please Enter a String" << std::endl;
@@ -42,6 +71,5 @@ int main() {
 
     std::cout << encrypt(input) << std::endl;
 
-    std::cout << decrypt(encrypt(input)) << std::endl;
-
+    decryptUsing(encrypt(input));
 }

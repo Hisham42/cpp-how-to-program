@@ -16,7 +16,6 @@ void printRest(std::stringstream& ss) {
 }
 
 int main() {
-
     
     int width = 15;
     char character = 'a';
