@@ -11,13 +11,8 @@ int main(int argc, char* argv[]) {
         for (size_t j = 1; j <= 4; j++)
         {
             double value{0};
-
-            
             value = atof(argv[j]);
             std::cout << value << " ";
-            
-            
-        
         }
         std::cout << std::endl;
     
