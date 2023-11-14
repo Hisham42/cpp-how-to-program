@@ -45,4 +45,6 @@ int main() {
     }
     
     std::cout << countStr(file, "our") << std::endl;
+
+    file.close();
 }
