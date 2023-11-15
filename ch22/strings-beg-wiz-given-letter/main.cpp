@@ -9,14 +9,12 @@ int main(int argc, char* argv[]) {
 
         for (size_t i = 1; i < argc; i++)
         {
-            if (tolower(argv[i][0]) == 'a')
+            if (strstr(argv[i], "ed.\0") != nullptr)
             {
                 std::cout << argv[i] << std::endl;
             }
             
         }
-
-        std::cout << argc << std::endl;
 
     }
    
