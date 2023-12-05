@@ -8,7 +8,7 @@ This project is a comprehensive implementation of the "C++ How to Program" book,
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [ATM System Case Study](#atm-system-case-study)
-- [Content](#content)
+- [Contents](#contents)
 
 
 ## Overview
