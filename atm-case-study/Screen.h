@@ -6,16 +6,11 @@ class Screen
 {
 private:
 
-    std::string bankName;
-
 public:
 
     void displayMessage(const std::string& message);
     void displayMainMenu();
     void displayWithdrawMenu();
-
-
-
 };
 
 

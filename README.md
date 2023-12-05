@@ -9,8 +9,6 @@ This project is a comprehensive implementation of the "C++ How to Program" book,
 - [Getting Started](#getting-started)
 - [Usage](#usage)
 - [ATM System Case Study](#atm-system-case-study)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
@@ -31,6 +29,14 @@ To get started with this project, follow these steps:
     ```bash
     git clone https://github.com/Hisham42/cpp-how-to-program.git
     ```
+
+
+## ATM System Case Study
+
+Object Oriented Design for the ATM
+
+![Clone Command](/home/heshoo2/Documents/Programming/cpp-how-to-program/atm-case-study/ATM Case Study.png)
+
 
 ## Usage
 
