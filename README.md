@@ -42,7 +42,7 @@ Take a look at the [ATM source code](https://github.com/Hisham42/cpp-how-to-prog
 Explore the structure and workings of the ATM system, gaining a better understanding of how it's designed using object-oriented programming.
 
 
-# Contents
+## Contents
 
 1. **Introduction to Computers and C++**
 2. **Introduction to C++ Programming, Input/Output, and Operators**
