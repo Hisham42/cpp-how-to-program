@@ -13,11 +13,12 @@ class Atm
 {
 private:
 
-    std::string BankName;
-    int authenticateUser(std::string& userId, std::string& PIN);
+    std::string BankName; // bank name
+    int authenticateUser(std::string& userId, std::string& PIN); // authenticate user
 
-    void excuteTransaction();
+    void excuteTransaction(); //save database changes
 
+    // ATM components
     Screen screen;
     Keypad keypad;
     CashDispenser cashDispenser;
@@ -26,8 +27,8 @@ private:
     DataBase dataBase;
 
 public:
-    Atm(const std::string& bankName);
-    void run();
+    Atm(const std::string& bankName); // constructor to display bank name
+    void run(); // main function
 
 };
 

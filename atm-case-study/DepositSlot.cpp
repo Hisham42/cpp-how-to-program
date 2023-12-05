@@ -1,13 +1,6 @@
 #include "DepositSlot.h"
 
-DepositSlot::DepositSlot(/* args */)
-{
-}
-
-DepositSlot::~DepositSlot()
-{
-}
-
+// should has a functionality in real world
 bool DepositSlot::receiveEnvelops()
 {
     return true;

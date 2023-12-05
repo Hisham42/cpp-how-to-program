@@ -4,23 +4,21 @@
 class CashDispenser
 {
 private:
-    
-
-    unsigned int availCash;
+    unsigned int availCash; // avail cash in the dispenser
 public:
 
-    const unsigned int MAX_CASH = 10000;
+    const unsigned int MAX_CASH = 10000; // max cash that the machine can have
     
     CashDispenser();
 
-    void dispenseCash(unsigned int amount);
+    void dispenseCash(unsigned int amount); // withdraw cash
     
-    void resetDispenser();
+    void resetDispenser(); // refill machine
 
-    void addCash(unsigned int amount);
+    void addCash(unsigned int amount); // in case of deposit cash
 
 
-    unsigned int getAvailBills();
+    unsigned int getAvailBills(); // get avail cash in the machine
 
 };
 

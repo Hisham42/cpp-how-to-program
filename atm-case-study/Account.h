@@ -7,22 +7,22 @@ class Account
 {
 private:
     
-    std::string id;
-    std::string PIN;
-    double balance;
+    std::string id; //account id
+    std::string PIN; //account pin
+    double balance; //account balance
     
 public:
-    Account(std::string userId, std::string userPIN, double userBalance);
+    Account(std::string userId, std::string userPIN, double userBalance); //account constructor
 
-    std::string getId() const;
+    std::string getId() const; //get account id
 
-    std::string getPIN() const;
+    std::string getPIN() const; //get account PIN
     
-    double getBalance() const;
+    double getBalance() const; //get balance
 
-    void withdraw(double amount);
+    void withdraw(double amount); //withdraw amount
 
-    void deposit(double amount);
+    void deposit(double amount); //deposit amount
       
 };
 

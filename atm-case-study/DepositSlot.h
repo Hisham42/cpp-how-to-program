@@ -3,12 +3,9 @@
 
 class DepositSlot
 {
-private:
 
 public:
-    DepositSlot(/* args */);
-    ~DepositSlot();
-
+   
     bool receiveEnvelops();
       
 };

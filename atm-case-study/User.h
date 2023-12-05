@@ -7,7 +7,6 @@ private:
     bool status {false};
 
 public:
-    User(/* args */);
     ~User();
 
     bool getStatus() const;

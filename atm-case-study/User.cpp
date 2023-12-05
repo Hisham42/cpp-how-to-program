@@ -1,19 +1,18 @@
 #include "User.h"
 
-User::User(/* args */)
-{
-}
-
 User::~User()
 {
+    // unauthenticate user
     status = false;
 }
 
-bool User::getStatus(/* args */) const
+// check if user authenticated or not
+bool User::getStatus() const
 {
     return status;
 }
 
+// authenticate or unauthenticate user
 void User::setStatus(bool state)
 {
     status = state;
