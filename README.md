@@ -33,9 +33,14 @@ To get started with this project, follow these steps:
 
 ## Object Oriented Designed ATM System
 
-[ATM source coee](https://github.com/Hisham42/cpp-how-to-program/tree/main/atm-case-study)
-Object Oriented Design for the ATM
+Discover how the ATM is designed using simple and clear Object-Oriented Design principles.
+
 ![Clone Command](https://github.com/Hisham42/cpp-how-to-program/blob/main/atm-case-study/ATM%20Case%20Study.png)
+
+Take a look at the [ATM source code](https://github.com/Hisham42/cpp-how-to-program/tree/main/atm-case-study) to see how it's all put together.
+
+Explore the structure and workings of the ATM system, gaining a better understanding of how it's designed using object-oriented programming.
+
 
 # Contents
 
